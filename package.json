@@ -1,0 +1,34 @@
+{
+  "name": "kelly-or-lee-decider",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "eslint .",
+    "start": "next start",
+    "test": "vitest run"
+  },
+  "description": "A playful browser-local decider for two customizable options.",
+  "dependencies": {
+    "lucide-react": "^1.17.0",
+    "next": "^16.2.7",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "overrides": {
+    "postcss": "^8.5.15"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.16",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.7",
+    "jsdom": "^27.0.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}
