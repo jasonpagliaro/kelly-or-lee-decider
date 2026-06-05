@@ -7,16 +7,10 @@ export type DecisionOption = {
 };
 
 export type RevealMode =
-  | "coin-flip"
   | "card-deal"
-  | "cloche"
   | "prize-wheel"
-  | "dice-roll"
-  | "sealed-envelope"
-  | "drawing-straws"
   | "slot-machine"
-  | "plinko"
-  | "fortune-cookie";
+  | "spotlight-reveal";
 
 export type RevealModeConfig = {
   id: RevealMode;
@@ -35,16 +29,10 @@ export type DecisionResult = {
 export const OPTION_STORAGE_KEY = "kelly-or-lee-decider.option-labels.v1";
 
 export const REVEAL_MODES: readonly RevealModeConfig[] = [
-  { id: "coin-flip", label: "Coin flip", durationMs: 1800 },
-  { id: "card-deal", label: "Card deal", durationMs: 1800 },
-  { id: "cloche", label: "Cloche", durationMs: 1700 },
   { id: "prize-wheel", label: "Prize wheel", durationMs: 2200 },
-  { id: "dice-roll", label: "Dice roll", durationMs: 1700 },
-  { id: "sealed-envelope", label: "Envelope", durationMs: 1800 },
-  { id: "drawing-straws", label: "Straws", durationMs: 1700 },
   { id: "slot-machine", label: "Slot reels", durationMs: 2100 },
-  { id: "plinko", label: "Plinko", durationMs: 2100 },
-  { id: "fortune-cookie", label: "Fortune cookie", durationMs: 1900 },
+  { id: "card-deal", label: "Card draw", durationMs: 1800 },
+  { id: "spotlight-reveal", label: "Spotlight", durationMs: 1700 },
 ];
 
 export function createDefaultOptions(): [DecisionOption, DecisionOption] {

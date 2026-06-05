@@ -5,6 +5,7 @@ import {
   createDecisionResult,
   createDefaultOptions,
   getActiveOptions,
+  REVEAL_MODES,
   parseStoredOptionLabels,
   pickRandomOption,
   serializeOptionLabels,
@@ -44,16 +45,25 @@ describe("decider helpers", () => {
     const result = createDecisionResult({
       id: "round-1",
       winnerLabel: "Trash duty",
-      mode: "coin-flip",
+      mode: "prize-wheel",
       decidedAt: new Date("2026-06-05T18:00:00.000Z"),
     });
 
     expect(result).toMatchObject({
       id: "round-1",
       winnerLabel: "Trash duty",
-      mode: "coin-flip",
-      modeLabel: "Coin flip",
+      mode: "prize-wheel",
+      modeLabel: "Prize wheel",
       decidedAt: "2026-06-05T18:00:00.000Z",
     });
+  });
+
+  it("exposes only the curated game-show reveal modes", () => {
+    expect(REVEAL_MODES.map((mode) => mode.id)).toEqual([
+      "prize-wheel",
+      "slot-machine",
+      "card-deal",
+      "spotlight-reveal",
+    ]);
   });
 });
