@@ -3,7 +3,7 @@
 import { Play, RotateCcw, Sparkles, Trash2 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { RevealCanvas, type RevealPhase } from "@/components/RevealCanvas";
+import { ShowStage, type RevealPhase } from "@/components/ShowStage";
 import {
   OPTION_STORAGE_KEY,
   REVEAL_MODES,
@@ -28,7 +28,7 @@ export function DeciderApp() {
     createDefaultOptions(),
   );
   const [storageReady, setStorageReady] = useState(false);
-  const [selectedMode, setSelectedMode] = useState<RevealMode>("coin-flip");
+  const [selectedMode, setSelectedMode] = useState<RevealMode>("prize-wheel");
   const [phase, setPhase] = useState<RevealPhase>("idle");
   const [winnerLabel, setWinnerLabel] = useState<string | null>(null);
   const [history, setHistory] = useState<DecisionResult[]>([]);
@@ -140,12 +140,12 @@ export function DeciderApp() {
     <main className="app-shell">
       <header className="app-header">
         <div>
-          <p className="eyebrow">Two names enter. One name leaves.</p>
+          <p className="eyebrow">Live from the decision stage</p>
           <h1>Kelly or Lee Decider</h1>
         </div>
         <div className="status-pill" aria-live="polite">
           <Sparkles aria-hidden="true" size={18} />
-          <span>{selectedModeConfig.label}</span>
+          <span>On stage: {selectedModeConfig.label}</span>
         </div>
       </header>
 
@@ -182,7 +182,7 @@ export function DeciderApp() {
           </div>
 
           <div className="section-heading mode-heading">
-            <h2>Reveal</h2>
+            <h2>Show mode</h2>
           </div>
 
           <div className="mode-grid" role="radiogroup" aria-label="Reveal style">
@@ -212,10 +212,10 @@ export function DeciderApp() {
           </div>
 
           <div className="canvas-frame">
-            <RevealCanvas
-              mode={selectedMode}
-              phase={phase}
-              optionLabels={activeLabels}
+              <ShowStage
+                mode={selectedMode}
+                phase={phase}
+                optionLabels={activeLabels}
               winnerLabel={winnerLabel}
               revealKey={revealKey}
               reducedMotion={reducedMotion}
